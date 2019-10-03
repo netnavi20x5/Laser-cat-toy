@@ -10,23 +10,33 @@ import math
 
 #EndCom = "\xff\xff\xff"
 
+def range(checkVal,minVal,maxVal):
+	if checkVal >=maxVal:
+		return random.randint(minVal,maxVal)
+	elif checkVal <=minVal:
+		return random.randint(minVal,maxVal)
+	else:
+		return random.randint(minVal,maxVal)
 
-x = random.randint(50,150)
-y = random.randint(100, 150)
 startX=90
 startY=90
-endX=random.randint(50,150)
-endY=random.randint(100, 150)
-speed = 1;
+#x = random.randint(50,150)
+#y = random.randint(100, 150)
+x = range(startX,50,150)
+y = range(startY,100,150)
 
-distance = math.sqrt(math.pow(endX-startX,2)+math.pow(endY-startY,2));
-directionX = (endX-startX) / distance;
-directionY = (endY-startY) / distance;
-
-X = startX;
-Y = startY;
 
 while True:
+	endX=random.randint(50,150)
+	endY=random.randint(100, 150)
+	speed = 1;
+	
+	distance = math.sqrt(math.pow(endX-startX,2)+math.pow(endY-startY,2));
+	directionX = (endX-startX) / distance;
+	directionY = (endY-startY) / distance;
+	
+	X = startX;
+	Y = startY;
 	moving = True
 	while moving:
 		X += directionX * speed
